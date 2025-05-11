@@ -85,6 +85,34 @@ body {
   margin-right: auto;
 }
 
+select {
+  background-color: #e0f7fa;
+  border: 2px solid #00acc1;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #007c91;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007c91;
+  box-shadow: 0 0 8px rgba(0, 172, 193, 0.6);
+  background-color: #ffffff;
+}
+
+
+.controls label {
+  font-weight: bold;
+  color: #006064;
+  font-size: 1.05em;
+  margin-right: 6px;
+}
+
+
 #face-svg {
   width: 700px;              /* Increase this for a larger image */
   height: auto;
