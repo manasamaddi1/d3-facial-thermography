@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facial Temperature Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Facial Temperature Explorer</h1>
+    <p class="description">
+      Click on a region of the face and use the slider to adjust its temperature. The region will change color to reflect the value. This helps visualize how localized facial temperature varies and how it might relate to core body temperature.
+    </p>
+
+    <div class="controls">
+      <div class="group-select">
+        <label><strong>Select Group:</strong></label>
+        <label><input type="radio" name="group" value="group1" /> Group 1 (20–24°C)</label>
+        <label><input type="radio" name="group" value="group2" checked /> Group 2 (24–29°C)</label>
+      </div>
+
+      <div class="slider-wrapper">
+        <label for="tempSlider"><strong>Adjust Temperature (°C):</strong></label>
+        <input type="range" id="tempSlider" min="35" max="40" step="0.1" value="37" />
+        <span id="tempDisplay">37.0</span>
+      </div>
+    </div>
+
+    <div class="viz-wrapper" style="margin-top: 30px;">
+      <svg id="faceSVG" width="400" height="500"></svg>
+    </div>
+
+    <div id="recommendationPanel" class="temp-feedback-panel">
+      <p><strong>Temperature Feedback:</strong></p>
+      <p id="feedbackText">Normal temperature range.</p>
+    </div>
+
+    <div class="legend card">
+      <h3>Legend</h3>
+      <p><span style="color:#4575b4;font-weight:bold;">35°C</span> → <span style="color:#ffffbf;font-weight:bold;">37.5°C</span> → <span style="color:#d73027;font-weight:bold;">40°C</span></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
