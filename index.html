@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Facial Temperature Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Facial Temperature Explorer</h1>
+    <p class="description">Click on a facial region to simulate temperature and view diagnostic insights. Adjust temperature using the slider, and toggle alert mode to highlight potential fever zones.</p>
+
+    <div class="controls">
+      <div class="group-select">
+        <label for="groupSelect">Ambient Temp Group:</label>
+        <select id="groupSelect">
+          <option value="group1">Group 1 (20.0–24.0°C)</option>
+          <option value="group2">Group 2 (24.0–29.0°C)</option>
+        </select>
+      </div>
+
+      <div class="slider-wrapper">
+        <label for="tempSlider">Temp:</label>
+        <input type="range" id="tempSlider" min="35" max="40" step="0.1" value="37" />
+        <span id="tempDisplay">37.0</span>°C
+      </div>
+
+      <div class="alert-toggle">
+        <label>
+          <input type="checkbox" id="alertToggle" />
+          Show Medical Alerts
+        </label>
+      </div>
+    </div>
+
+    <div class="viz-wrapper">
+      <svg id="faceSVG" width="500" height="625"></svg>
+    </div>
+
+    <div class="temp-feedback-panel">
+      <p id="feedbackText">Click a region and use the slider to see feedback here.</p>
+    </div>
+
+    <div class="legend card">
+      <h3>Temperature Color Legend</h3>
+      <p>
+        <span>Low (&lt;36°C)</span>
+        <span>Normal (36–37.9°C)</span>
+        <span>High (≥38°C)</span>
+      </p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
