@@ -60,7 +60,7 @@ slider.on("input", function () {
     } else if (newTemp < 38) {
       feedbackText.textContent = "Normal temperature range.";
     } else {
-      feedbackText.textContent = "Elevated temperature—possible fever.";
+      feedbackText.textContent = "🌡️ High fever detected. Medical attention may be needed!";
     }
   }
 });
