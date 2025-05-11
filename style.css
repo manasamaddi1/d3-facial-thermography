@@ -86,13 +86,23 @@ body {
 }
 
 #face-svg {
-  display: block;
+  width: 700px;              /* Increase this for a larger image */
+  height: auto;
+  max-width: 100%;
   margin: 0 auto;
+  display: block;
   border-radius: 18px;
   background: #fff;
   box-shadow: 0 0 28px rgba(0, 0, 0, 0.08);
   padding: 10px;
+  transition: transform 0.3s ease;
 }
+
+
+#face-svg:hover {
+  transform: scale(1.02);
+}
+
 
 .temp-feedback-panel {
   background-color: #e3f2fd;
