@@ -33,17 +33,40 @@ body {
 }
 
 .description {
-  font-size: 1.15em;
-  color: #3e5060;
-  margin: 20px auto;
-  max-width: 750px;
-  background-color: #e0f7fa;
-  padding: 24px;
-  border-left: 5px solid #00acc1;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  line-height: 1.6em;
+  font-size: 1.2em;
+  color: #2c3e50;
+  margin: 24px auto;
+  max-width: 760px;
+  background-color: #e8f9fd;
+  padding: 28px 30px;
+  border-left: 6px solid #00bcd4;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+  line-height: 1.7em;
+  font-weight: 500;
+  text-align: justify;
+  position: relative;
+  animation: slideInDesc 0.8s ease-in-out;
 }
+
+@keyframes slideInDesc {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.desc-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+  vertical-align: middle;
+  animation: pulseDesc 1.4s infinite;
+}
+
+@keyframes pulseDesc {
+  0% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+
 
 .controls {
   display: flex;
@@ -232,6 +255,35 @@ select:focus {
   font-size: 1.3em;
   margin-left: 6px;
   animation: pulse 1.2s infinite;
+}
+
+
+
+.page-title {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #006064;
+  text-shadow: 0 2px 6px rgba(0, 172, 193, 0.2);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeInTitle 1.2s ease;
+}
+
+.pulse-icon {
+  animation: pulseGlow 1.8s infinite;
+  display: inline-block;
+}
+
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
 
 
