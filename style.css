@@ -286,5 +286,11 @@ select:focus {
   100% { transform: scale(1); opacity: 0.8; }
 }
 
+circle.selected {
+  stroke: #00796b;       
+  stroke-width: 3px;
+  fill-opacity: 1;
+}
+
 
 

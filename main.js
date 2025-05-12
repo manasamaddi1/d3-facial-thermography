@@ -9,9 +9,13 @@ svg.append("image")
   .attr("height", 500);
 
 const regions = [
-  { name: "forehead", cx: 200, cy: 170, temp: 37 },
-  { name: "leftEye", cx: 140, cy: 240, temp: 37 },
-  { name: "rightEye", cx: 270, cy: 240, temp: 37 },
+  { name: "centerForehead", cx: 200, cy: 160, temp: 37 },
+  { name: "leftForehead", cx: 140, cy: 160, temp: 37 },
+  { name: "rightForehead", cx: 260, cy: 160, temp: 37 },
+  { name: "topForehead", cx: 200, cy: 130, temp: 37 },
+  { name: "bottomForehead", cx: 200, cy: 190, temp: 37 },
+  { name: "leftEyeCorner", cx: 170, cy: 240, temp: 37 },
+  { name: "rightEyeCorner", cx: 225, cy: 240, temp: 37 },
   { name: "mouth", cx: 200, cy: 355, temp: 37 }
 ];
 
@@ -32,12 +36,15 @@ const circles = svg.selectAll("circle")
   .attr("id", d => d.name)
   .attr("cx", d => d.cx)
   .attr("cy", d => d.cy)
-  .attr("r", 20)
+  .attr("r", 10)
   .attr("fill", d => colorScale(d.temp))
   .on("click", function (event, d) {
     d3.select("#tempSlider").property("value", d.temp);
     d3.select("#tempDisplay").text(d.temp.toFixed(1));
+    
     selectedRegion = d;
+    d3.selectAll("circle").classed("selected", false);
+    d3.select(this).classed("selected", true);
   })
   .on("mouseover", function (event, d) {
     d3.select("#tooltip")
@@ -58,14 +65,16 @@ let selectedRegion = null;
 let selectedAgeRange = "all";
 let selectedGender = "all";
 
-
-// columns in our dataset for each region
-const regionToColumn = {
-  forehead: "T_FH_Max1",
-  leftEye: "T_LC_Max1",
-  rightEye: "T_RC_Max1",
-  mouth: "T_OR_Max1"
-};
+// const regionToColumn = {
+//   centerForehead: "T_FHCC1",
+//   leftForehead: "T_FHLC1",
+//   rightForehead: "T_FHRC1",
+//   topForehead: "T_FHTC1",
+//   bottomForehead: "T_FHBC1",
+//   leftEyeCorner: "T_LC1",
+//   rightEyeCorner: "T_RC1",
+//   mouth: "T_OR_Max1"
+// };
 
 let currentOffsets = {};
 let selectedGroup = d3.select("#groupSelect").property("value");
@@ -125,23 +134,34 @@ d3.select("#alertToggle").on("change", function () {
 
 function loadAndComputeOffsets(group) {
   const path = `data/cleaned_FLIR_${group}.csv`;
-  const regionsList = ["forehead", "leftEye", "rightEye", "mouth"];
+  const regionsList = [
+    "centerForehead",
+    "leftForehead",
+    "rightForehead",
+    "topForehead",
+    "bottomForehead",
+    "leftEyeCorner",
+    "rightEyeCorner",
+    "mouth"
+  ];
 
   const regionToColumn = {
-    forehead: "T_FH_Max1",
-    leftEye: "T_LC_Max1",
-    rightEye: "T_RC_Max1",
+    centerForehead: "T_FHCC1",
+    leftForehead: "T_FHLC1",
+    rightForehead: "T_FHRC1",
+    topForehead: "T_FHTC1",
+    bottomForehead: "T_FHBC1",
+    leftEyeCorner: "T_LC1",
+    rightEyeCorner: "T_RC1",
     mouth: "T_OR_Max1"
   };
 
   d3.csv(path).then(data => {
     data = data.filter(d => {
-      const ageGroup = d.Age;     
-      const gender = d.Gender;    
-
+      const ageGroup = d.Age;
+      const gender = d.Gender;
       const agePass = selectedAgeRange === "all" || selectedAgeRange === ageGroup;
       const genderPass = selectedGender === "all" || gender === selectedGender;
-
       return agePass && genderPass;
     });
 
@@ -163,6 +183,25 @@ function loadAndComputeOffsets(group) {
     });
 
     currentOffsets = offsetMatrix;
+
+    if (selectedRegion && currentOffsets[selectedRegion.name]) {
+      const baseTemp = +d3.select("#tempSlider").property("value");
+
+      regions.forEach(region => {
+        const offset = currentOffsets[selectedRegion.name][region.name];
+        region.temp = baseTemp + offset;
+
+        d3.select(`#${region.name}`)
+          .attr("fill", colorScale(region.temp));
+
+        if (d3.select("#alertToggle").property("checked")) {
+          d3.select(`#${region.name}`).classed("glow", region.temp >= 38);
+        } else {
+          d3.select(`#${region.name}`).classed("glow", false);
+        }
+      });
+    }
+
   });
 }
 
@@ -176,6 +215,28 @@ d3.select("#genderSelect").on("change", function () {
   selectedGender = this.value;
   loadAndComputeOffsets(selectedGroup);
 });
+
+d3.select("#resetButton").on("click", function () {
+  selectedRegion = null;
+
+  regions.forEach(region => {
+    region.temp = 37;
+    d3.select(`#${region.name}`)
+      .attr("fill", colorScale(region.temp))
+      .classed("glow", false);
+  });
+
+  d3.select("#tempSlider").property("value", 37);
+  d3.select("#tempDisplay").text("37.0");
+
+  const feedbackText = document.getElementById("feedbackText");
+  feedbackText.textContent = "Click a region and use the slider to see feedback here.";
+
+  d3.select("#tooltip").style("display", "none");
+
+  d3.selectAll("circle").classed("selected", false);
+});
+
 
 
 loadAndComputeOffsets(selectedGroup);
