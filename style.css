@@ -231,8 +231,8 @@ select:focus {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.legend span:nth-child(1) { background-color: #bbdefb; }
-.legend span:nth-child(2) { background-color: #fff59d; }
+.legend span:nth-child(1) { background-color: #b2dfdb; }
+.legend span:nth-child(2) { background-color: #ffeb99; }
 .legend span:nth-child(3) { background-color: #ffcdd2; }
 
 .glow {
