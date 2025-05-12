@@ -55,6 +55,10 @@ const circles = svg.selectAll("circle")
 
 let selectedRegion = null;
 
+let selectedAgeRange = "all";
+let selectedGender = "all";
+
+
 // columns in our dataset for each region
 const regionToColumn = {
   forehead: "T_FH_Max1",
@@ -119,13 +123,28 @@ d3.select("#alertToggle").on("change", function () {
   });
 });
 
-
 function loadAndComputeOffsets(group) {
-  const path = `data/cleaned_${group}_combined.csv`;
-
+  const path = `data/cleaned_FLIR_${group}.csv`;
   const regionsList = ["forehead", "leftEye", "rightEye", "mouth"];
 
+  const regionToColumn = {
+    forehead: "T_FH_Max1",
+    leftEye: "T_LC_Max1",
+    rightEye: "T_RC_Max1",
+    mouth: "T_OR_Max1"
+  };
+
   d3.csv(path).then(data => {
+    data = data.filter(d => {
+      const ageGroup = d.Age;     
+      const gender = d.Gender;    
+
+      const agePass = selectedAgeRange === "all" || selectedAgeRange === ageGroup;
+      const genderPass = selectedGender === "all" || gender === selectedGender;
+
+      return agePass && genderPass;
+    });
+
     data.forEach(d => {
       regionsList.forEach(r => {
         d[regionToColumn[r]] = +d[regionToColumn[r]];
@@ -148,4 +167,16 @@ function loadAndComputeOffsets(group) {
 }
 
 
+d3.select("#ageSelect").on("change", function () {
+  selectedAgeRange = this.value;
+  loadAndComputeOffsets(selectedGroup);
+});
+
+d3.select("#genderSelect").on("change", function () {
+  selectedGender = this.value;
+  loadAndComputeOffsets(selectedGroup);
+});
+
+
 loadAndComputeOffsets(selectedGroup);
+
