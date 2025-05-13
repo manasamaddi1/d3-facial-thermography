@@ -95,16 +95,21 @@
       <svg id="faceSVG" width="400" height="500"></svg>
     </div>
 
-    <div class="annotation-panel">
+    <!-- <div class="annotation-panel">
       <h4><span style="color:#007c91">🎯 Purpose of This Tool</span></h4>
-<ul>
-  <li><strong>Visualize</strong> real-time facial temperature patterns interactively and intuitively.</li>
   <li><strong>Simulate</strong> how temperature readings vary by ambient conditions, <strong>age</strong>, and <strong>gender</strong>.</li>
-  <li><strong>Identify</strong> potential fever zones (≥ 38 °C) early using color and alert cues.</li>
-  <li><strong>Support</strong> clinicians, researchers, and educators with a fast-reference diagnostic tool.</li>
-</ul>
-
-    </div>
+      <ul>
+        <li><strong>Visualize</strong> real-time facial temperature patterns interactively and intuitively.</li>
+        <li><strong>Simulate</strong> how temperature readings vary by ambient conditions, <strong>age</strong>, and <strong>gender</strong>.</li>
+        <li><strong>Identify</strong> potential fever zones (≥ 38 °C) early using color and alert cues.</li>
+        <li><strong>Support</strong> clinicians, researchers, and educators with a fast-reference diagnostic tool.</li>
+      </ul>
+    </div> -->
+        <div class="diagnosis-container" id="diagnosisBox">
+          <h4>Auto Diagnosis</h4>
+          <ul id="diagnosisList"></ul>
+        </div>
+    
   </div>
 
 
@@ -114,11 +119,6 @@
     <div class="temp-feedback-panel">
       <p id="feedbackText">Click a region and use the slider to see feedback here.</p>
     </div>
-
-     <div class="diagnosis-container" id="diagnosisBox">
-  <h4>Auto Diagnosis</h4>
-  <ul id="diagnosisList"></ul>
-</div>
 
     <div class="legend card">
       <h3>💡 Temperature Color Legend</h3>

@@ -253,9 +253,12 @@ function generateDiagnosis() {
     list.innerHTML += `<li>⚠️ Mouth: ${temp}°C — Oral inflammation or infection. Monitor symptoms, rinse, and seek care if needed.</li>`;
   }
 
-  // Hide box if no issues
-  document.getElementById("diagnosisBox").style.display =
-    list.innerHTML === "" ? "none" : "block";
+  // No issues detected if empty
+  if (diagnosisList.children.length === 0) {
+    const placeholder = document.createElement("li");
+    placeholder.textContent = "No issues detected";
+    diagnosisList.appendChild(placeholder);
+  }
 }
 
 
