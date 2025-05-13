@@ -11,6 +11,10 @@ body {
   transition: background 0.4s ease;
 }
 
+
+
+
+
 .navbar {
   display: flex;
   align-items: center;
@@ -321,6 +325,14 @@ circle.selected {
   justify-content: center;
   gap: 12px;
   margin-top: 20px auto;
+}
+
+.annotation-panel h4 {
+  color: #007c91;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #00b7c2;
+  padding-bottom: 5px;
 }
 
 .annotation-panel {
