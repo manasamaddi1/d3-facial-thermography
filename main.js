@@ -89,6 +89,9 @@ d3.select("#groupSelect").on("change", function () {
 
 
 const slider = d3.select("#tempSlider");
+
+
+
 d3.select("#tempSlider").on("input", function () {
   const baseTemp = +this.value;
   d3.select("#tempDisplay").text(baseTemp.toFixed(1));
@@ -116,8 +119,12 @@ d3.select("#tempSlider").on("input", function () {
     } else {
       feedbackText.textContent = "🌡️ High fever detected. Medical attention may be needed!";
     }
+
+    // ✅ NEW: Trigger auto-diagnosis
+    generateDiagnosis();
   }
 });
+
 
 d3.select("#groupSelect").on("change", function () {
   selectedGroup = this.value;
@@ -204,6 +211,53 @@ function loadAndComputeOffsets(group) {
 
   });
 }
+
+
+function generateDiagnosis() {
+  const list = document.getElementById("diagnosisList");
+  list.innerHTML = "";
+
+  // Define condition groups
+  const grouped = {
+    fever: [],
+    eye: [],
+    mouth: [],
+  };
+
+  regions.forEach(region => {
+    const temp = region.temp;
+    if (region.name.includes("Forehead") && temp >= 38) {
+      grouped.fever.push(region);
+    } else if ((region.name.includes("EyeCorner")) && temp >= 38) {
+      grouped.eye.push(region);
+    } else if (region.name === "mouth" && temp >= 38) {
+      grouped.mouth.push(region);
+    }
+  });
+
+  // Add forehead fever
+  if (grouped.fever.length) {
+    const temp = grouped.fever[0].temp.toFixed(1);
+    list.innerHTML += `<li>⚠️ Forehead region: ${temp}°C — Possible fever. Hydrate, rest, and monitor body temperature.</li>`;
+  }
+
+  // Add eye strain
+  if (grouped.eye.length) {
+    const temp = grouped.eye[0].temp.toFixed(1);
+    list.innerHTML += `<li>⚠️ Periorbital region: ${temp}°C — Eye strain or sinus issue. Reduce screen time, consider antihistamines or consult a doctor.</li>`;
+  }
+
+  // Add mouth issues
+  if (grouped.mouth.length) {
+    const temp = grouped.mouth[0].temp.toFixed(1);
+    list.innerHTML += `<li>⚠️ Mouth: ${temp}°C — Oral inflammation or infection. Monitor symptoms, rinse, and seek care if needed.</li>`;
+  }
+
+  // Hide box if no issues
+  document.getElementById("diagnosisBox").style.display =
+    list.innerHTML === "" ? "none" : "block";
+}
+
 
 
 d3.select("#ageSelect").on("change", function () {

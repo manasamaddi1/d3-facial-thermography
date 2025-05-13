@@ -393,3 +393,61 @@ circle.selected {
   padding: 0 20px;       /* add some side padding */
   text-align: left;      /* left‑align all text inside */
 }
+
+
+/* ---------------- Auto Diagnosis Styling ---------------- */
+
+.diagnosis-container {
+  background-color: #ffffff;
+  border: 2px solid #00bcd4;
+  border-radius: 16px;
+  padding: 24px 32px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.diagnosis-container h4 {
+  font-size: 1.5em;
+  margin-bottom: 16px;
+  color: #004d61;
+  border-bottom: 2px solid #00acc1;
+  padding-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.diagnosis-container h4::before {
+  content: "🧾";
+  font-size: 1.3em;
+}
+
+#diagnosisList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#diagnosisList li {
+  background-color: #e1f7fa;
+  border-left: 5px solid #00acc1;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#diagnosisList li::before {
+  content: "⚕️";
+  margin-right: 5px;
+  font-size: 1.2em;
+  color: #007c91;
+}
