@@ -328,8 +328,51 @@ circle.selected {
   padding: 20px;
   font-size: 0.95rem;
   line-height: 1.4;
-  text-align: center;
-  margin-left: 50px;
-  margin-right: 50px;
+  text-align: left;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
+.annotation-panel ul {
+  margin: 0;
+  padding-left: 1.2em;
+  line-height: 1.6;
+}
+
+.annotation-panel ul li {
+  margin-bottom: 0.8em; 
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 60px;                  
+  padding: 5px 80px;         
+  background: linear-gradient(to right, #00838f, #00acc1);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 600;
+  padding: 8px 16px; 
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  background: rgba(255,255,255,0.2);
+}
+
+.container {
+  max-width: 800px;      /* constrain the width */
+  margin: 40px auto;     /* center the container horizontally */
+  padding: 0 20px;       /* add some side padding */
+  text-align: left;      /* left‑align all text inside */
+}

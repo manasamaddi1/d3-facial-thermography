@@ -8,10 +8,16 @@
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
+
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="writeup/writeup.html">Write‑Up</a>
+  </nav>
+
   <div class="container">
     <h1 class="page-title">
-  <span class="pulse-icon">🩺</span> Smart Thermal Facial Dashboard <span class="pulse-icon">💡</span>
-</h1>
+      <span class="pulse-icon">🩺</span> Smart Thermal Facial Dashboard <span class="pulse-icon">💡</span>
+    </h1>
 
     <p class="description">
   <span class="desc-icon">🧠</span>
@@ -67,33 +73,36 @@
       <div class="reset-wrapper">
         <button id="resetButton">Reset</button>
       </div>
-      
-      
     </div>
 
 
   <div class="face-container">
     <div class="annotation-panel">
       <h4>How to Use</h4>
-      <p>
-        Select a region and drag the slider to see temperature feedback.<br/>
-        Toggle alerts to highlight fever zones.
-      </p>
+      <ul>
+        <li>Select your current ambient‐temperature range.</li>
+        <li>Click on a facial region in the diagram to select it.</li>
+        <li>Use the slider to enter your measured temperature for the selected area.</li>
+        <li>Check “Show Medical Alerts” to highlight any regions ≥ 38 °C with a red glow.</li>
+        <li>Filter by age and gender to view subgroup differences.</li>
+        <li>Hover over a region to see the exact temperature in a tooltip.</li>
+        <li>Consult the legend at the bottom to interpret low, normal, and high readings.</li>
+        <li><strong>Disclaimer:</strong> For informational purposes only—this is not a substitute for professional medical diagnosis or treatment.</li>
+      </ul>
     </div>
+    
 
     <div class="viz-wrapper">
       <svg id="faceSVG" width="400" height="500"></svg>
     </div>
 
     <div class="annotation-panel">
-      <h4>Key Features</h4>
+      <h4>Purpose</h4>
       <ul>
-        <li><strong>Room Temp:</strong> choose ambient‑temperature group</li>
-        <li><strong>Camera:</strong> switch FLIR ⇆ ICI data sources</li>
-        <li><strong>Region Slider:</strong> simulate any zone’s temp</li>
-        <li><strong>Alerts:</strong> highlight readings ≥38 °C</li>
-        <li><strong>Filters:</strong> age range &amp; gender</li>
-        <li><strong>Reset:</strong> clear selections</li>
+        <li>Provide a real‑time, interactive view of facial temperature zones.</li>
+        <li>Allow users to simulate and compare readings between ambient coditions, age, and gender</li>
+        <li>Highlight potential fever regions (≥ 38 °C) for preliminary screening.</li>
+        <li>Serve as a quick‐reference tool for clinicians, researchers, and educators.</li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Write‑Up</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="writeup.html">Write‑Up</a>
+  </nav>
+
+  <div class="container">
+    <h1>Final Write‑Up</h1>
+
+    <!-- 1. Motivation -->
+    <section>
+      <h2>1. Motivation & Compelling Question</h2>
+      <p>
+        Our dashboard answers the question:  
+        <em>“How well do different facial regions (forehead, inner canthi, mouth) track true oral temperature under various ambient conditions and demographics?”</em>
+      </p>
+    </section>
+    <section>
+      <h2>2. Data Source & Subsetting</h2>
+      <ul>
+        <li>where this came from</li>
+        <li>number of patients</li>
+        <li>other</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2> 3. Visual Encoding & Interaction Rationale</h2>
+      <h3>Encodings</h3>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+
+      <h3>Interaction Techniques</h3>
+      <ul>
+        <li>slider</li>
+        <li>dropdown alerrts</li>
+        <li>toggle on-off alerts</li>
+        <li>tooltips</li>
+      </ul>
+
+      <h3>Alternatives Considered</h3>
+      <ul>
+        <li>Heatmap grid</li>
+      </ul>
+    </section>
+    <section>
+      <h2>4. Technical Implementation</h2>
+      <ul>
+        <li><strong>Stack:</strong> D3.js v7, plain HTML/CSS, no frameworks</li>
+        <li><strong>Data Loading:</strong> `d3.csv()` + merging FLIR/ICI, adding `group` column</li>
+        <li><strong>Data Join:</strong> keyed by region name for smooth `.join()` transitions</li>
+        <li><strong>Update Logic:</strong> `updateFace(region, temp)` recolors selected + neighbor regions</li>
+        <li><strong>Performance:</strong> in‑memory caching; minimal DOM ops on slider drift</li>
+        <li><strong>Deployment:</strong> hosted on GitHub Pages (master branch /docs folder)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Team & Development Process</h2>
+      <h3>Roles & Task Splits</h3>
+      <ul>
+        <li>Manasa</li>
+        <li>Rakshan</li>
+        <li>Andrew</li>
+      </ul>
+
+      <h3>Workflow & Time</h3>
+      <ul>
+        <li><strong>Total effort:</strong> ~XX people‑hours</li>
+        <li>Most time spent debugging SVG coordinate mapping and slider transitions</li>
+        <li>Regular meetups through Zoom and text group chat</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
