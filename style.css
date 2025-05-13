@@ -75,14 +75,17 @@ body {
   gap: 30px;
   margin: 30px auto;
   flex-wrap: wrap;
+
   background-color: #ffffff;
   padding: 28px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
   margin-left: 50px;
   margin-right: 50px;
   border-left: 6px solid #00acc1;
   border-right: 6px solid #00acc1;
+
 }
 
 .slider-wrapper input[type=range] {
@@ -319,8 +322,10 @@ circle.selected {
   gap: 12px;
   margin-top: 20px auto;
 }
+
 .annotation-panel {
   flex: 0 0 350px;
+
   background-color: #ffffff;
   border: 3px solid #c0e7f3;
   border-radius: 10px;
