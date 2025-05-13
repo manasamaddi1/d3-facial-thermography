@@ -353,11 +353,11 @@ circle.selected {
 .annotation-panel ul {
   margin: 0;
   padding-left: 1.2em;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .annotation-panel ul li {
-  margin-bottom: 0.8em; 
+  margin-bottom: 0.4em; 
 }
 
 .navbar {
@@ -393,6 +393,8 @@ circle.selected {
   padding: 0 20px;       /* add some side padding */
   text-align: left;      /* left‑align all text inside */
 }
+
+
 
 
 /* ---------------- Auto Diagnosis Styling ---------------- */
