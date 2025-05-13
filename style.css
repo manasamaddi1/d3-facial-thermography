@@ -341,11 +341,11 @@ circle.selected {
 .annotation-panel ul {
   margin: 0;
   padding-left: 1.2em;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .annotation-panel ul li {
-  margin-bottom: 0.8em; 
+  margin-bottom: 0.4em; 
 }
 
 .navbar {
@@ -381,3 +381,25 @@ circle.selected {
   padding: 0 20px;       /* add some side padding */
   text-align: left;      /* left‑align all text inside */
 }
+
+/* Center the annotations‑top wrapper like your controls */
+.annotations-top {
+  display: flex;
+  justify-content: center;      /* ← center the panel(s) */
+  align-items: flex-start;
+  
+  /* match your controls width/centering */
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;            /* ← auto left/right to center wrapper */
+  gap: 24px;
+}
+
+/* Make the inner panel a fixed max‑width, and allow it to center within the wrapper */
+.annotations-top .annotation-panel {
+  flex: 0 0 auto;               /* don’t stretch */
+  max-width: 600px;             /* or whatever width you prefer */
+  width: 100%;                  /* fill up to that max‑width */
+  margin: 0;                    /* clear any old side margins */
+}
+
