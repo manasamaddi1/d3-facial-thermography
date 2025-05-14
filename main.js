@@ -9,14 +9,14 @@ svg.append("image")
   .attr("height", 500);
 
 const regions = [
-  { name: "centerForehead", cx: 200, cy: 160, temp: 37 },
-  { name: "leftForehead", cx: 140, cy: 160, temp: 37 },
-  { name: "rightForehead", cx: 260, cy: 160, temp: 37 },
-  { name: "topForehead", cx: 200, cy: 130, temp: 37 },
-  { name: "bottomForehead", cx: 200, cy: 190, temp: 37 },
-  { name: "leftEyeCorner", cx: 170, cy: 240, temp: 37 },
-  { name: "rightEyeCorner", cx: 225, cy: 240, temp: 37 },
-  { name: "mouth", cx: 200, cy: 355, temp: 37 }
+  { name: "centerForehead", cx: 200, cy: 140, temp: 37 },
+  { name: "leftForehead", cx: 140, cy: 170, temp: 37 },
+  { name: "rightForehead", cx: 260, cy: 170, temp: 37 },
+  { name: "topForehead", cx: 200, cy: 170, temp: 37 },
+  { name: "bottomForehead", cx: 200, cy: 200, temp: 37 },
+  { name: "leftEyeCorner", cx: 170, cy: 255, temp: 37 },
+  { name: "rightEyeCorner", cx: 225, cy: 255, temp: 37 },
+  { name: "mouth", cx: 200, cy: 365, temp: 37 }
 ];
 
 const colorScale = d3.scaleLinear()
