@@ -2,7 +2,7 @@
 
 const svg = d3.select("#faceSVG");
 svg.append("image")
-  .attr("xlink:href", "data/face.png")
+  .attr("xlink:href", "data/female_face.png")
   .attr("x", 0)
   .attr("y", 0)
   .attr("width", 400)
