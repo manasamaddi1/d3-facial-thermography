@@ -238,19 +238,19 @@ function generateDiagnosis() {
   // Add forehead fever
   if (grouped.fever.length) {
     const temp = grouped.fever[0].temp.toFixed(1);
-    list.innerHTML += `<li>⚠️ Forehead region: ${temp}°C — Possible fever. Hydrate, rest, and monitor body temperature.</li>`;
+    list.innerHTML += `<li>⚠️ <strong>Forehead region</strong>: ${temp}°C — Possible fever. Hydrate, rest, and monitor body temperature.</li>`;
   }
 
   // Add eye strain
   if (grouped.eye.length) {
     const temp = grouped.eye[0].temp.toFixed(1);
-    list.innerHTML += `<li>⚠️ Periorbital region: ${temp}°C — Eye strain or sinus issue. Reduce screen time, consider antihistamines or consult a doctor.</li>`;
+    list.innerHTML += `<li>⚠️ <strong>Periorbital region</strong>: ${temp}°C — Eye strain or sinus issue. Reduce screen time, consider antihistamines or consult a doctor.</li>`;
   }
 
   // Add mouth issues
   if (grouped.mouth.length) {
     const temp = grouped.mouth[0].temp.toFixed(1);
-    list.innerHTML += `<li>⚠️ Mouth: ${temp}°C — Oral inflammation or infection. Monitor symptoms, rinse, and seek care if needed.</li>`;
+    list.innerHTML += `<li>⚠️ <strong>Mouth</strong>: ${temp}°C — Oral inflammation or infection. Monitor symptoms, rinse, and seek care if needed.</li>`;
   }
 
   // No issues detected if empty
