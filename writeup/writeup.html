@@ -26,9 +26,12 @@
     <section>
       <h2>2. Data Source & Subsetting</h2>
       <ul>
-        <li>where this came from</li>
-        <li>number of patients</li>
-        <li>other</li>
+        <li>We utilized a database titled “Facial and oral temperature data from a large set of human subject volunteers” from PhysioNet for our data visualization.</li>
+        <li>The researchers utilized infrared thermography (IRT) to measure different facial and oral temperatures of 1,020 individuals on 
+          IRT-1 and 1,009 individuals on IRT-2. The dataset includes information on temperatures in the forehead, mouth, eye, and internal 
+          oral regions, demographic data like gender, age, and ethnicity, and situational factors like cosmetic usage (y/n) and relative humidity. 
+          All personal identification information (PII) had been removed. The data was divided across six CSV files, and we wrangled and combined the 
+          data for each sensor type to two datasets–one for Group 1 (ambient temperature 20-24 degrees Celsius) and Group 2 (ambient temperature 24-28 degrees Celsius).</li>
       </ul>
     </section>
 
@@ -36,38 +39,32 @@
       <h2> 3. Visual Encoding & Interaction Rationale</h2>
       <h3>Encodings</h3>
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        <li>Red glow: This was used when “Show Medical Alerts” was turned on and a high fever was predicted. Its purpose was to highlight the urgency of the prediction</li>
+        <li>Red color: This color was chosen because it represents a high predicted temperature and this choice was made as we typically associate red with being a hot color.</li>
+        <li>Blue color: This was used for colder internal temperatures and this choice was made as our brains associated blue with being a cooler color.</li>
       </ul>
 
       <h3>Interaction Techniques</h3>
       <ul>
-        <li>slider</li>
-        <li>dropdown alerrts</li>
-        <li>toggle on-off alerts</li>
-        <li>tooltips</li>
+        <li>Slider for temperature: Allows users to see the correlation between one facial area and other facial areas through color similarity.
+        </li>
+        <li>Dropdown Filters: Allows users to filter “Age Range” and “Gender” to show a more specific facial temperature in real-time. </li>
+        <li>Checkbox for medical alerts: Emphasizes the facial dots that are past a threshold–indicating a fever or medical attention.</li>
+        <li>Tooltips on Facial Dots: Allows users to see the specific temperature of each facial area.</li>
+        <li>Auto Diagnostic: If certain areas are above a set threshold, the “Auto-Diagnostic” box will state reasons and prescribe courses of action.</li>
       </ul>
 
       <h3>Alternatives Considered</h3>
       <ul>
-        <li>Heatmap grid</li>
-      </ul>
-    </section>
-    <section>
-      <h2>4. Technical Implementation</h2>
-      <ul>
-        <li><strong>Stack:</strong> D3.js v7, plain HTML/CSS, no frameworks</li>
-        <li><strong>Data Loading:</strong> `d3.csv()` + merging FLIR/ICI, adding `group` column</li>
-        <li><strong>Data Join:</strong> keyed by region name for smooth `.join()` transitions</li>
-        <li><strong>Update Logic:</strong> `updateFace(region, temp)` recolors selected + neighbor regions</li>
-        <li><strong>Performance:</strong> in‑memory caching; minimal DOM ops on slider drift</li>
-        <li><strong>Deployment:</strong> hosted on GitHub Pages (master branch /docs folder)</li>
+        <li>We initially considered creating a heatmap grid with all the different areas measured by the research study, including internal oral temperature, 
+          to better show the correlation of predicting internal temperature. However, for this project, we wanted to integrate an actual face and simply visualize
+           how temperatures change across the face as opposed to internal temperature prediction. Thus, we went with our current face visualization idea.
+        </li>
       </ul>
     </section>
 
     <section>
-      <h2>5. Team & Development Process</h2>
+      <h2>4. Team & Development Process</h2>
       
       <ul>
         <li>
