@@ -73,62 +73,43 @@
       </div>
     </div>
 
+    <div class="legend card">
+      <h3>💡 Temperature Color Legend</h3>
+      <p>Low: <span>💙 &lt;36°C</span> Normal: <span>🟨 36–37.9°C</span> High: <span>🔴 ≥38°C</span></p>
+    </div>
 
   <div class="face-container">
     <div class="annotation-panel">
       <h4>How to Use</h4>
-<ol>
-  <li><strong>Select</strong> your current <strong>ambient-temperature</strong> range from the dropdown.</li>
-  <li><strong>Click</strong> on a facial region to begin adjusting its temperature.</li>
-  <li><strong>Slide</strong> the thermometer bar to simulate your measured temperature.</li>
-  <li><strong>Toggle</strong> <em>“Show Medical Alerts”</em> to visualize regions ≥ 38 °C in red.</li>
-  <li><strong>Filter</strong> data by <strong>age</strong> and <strong>gender</strong> to explore subgroup patterns.</li>
-  <li><strong>Hover</strong> on a region to display its temperature with a tooltip.</li>
-  <li><strong>Use</strong> the color legend to interpret readings as low, normal, or high.</li>
-  <li><strong>Disclaimer:</strong> This dashboard is for informational use only—not a replacement for medical advice or diagnosis.</li>
-</ol>
-
+      <ol>
+        <li><strong>Select</strong> your current <strong>ambient-temperature</strong> range from the dropdown.</li>
+        <li><strong>Click</strong> on a marked faical circles to begin adjusting its temperature.</li>
+        <li><strong>Slide</strong> the thermometer bar to simulate your measured temperature.</li>
+        <li><strong>Toggle</strong> <em>“Show Medical Alerts”</em> to visualize regions ≥ 38 °C in red.</li>
+        <li><strong>Filter</strong> data by <strong>age</strong> and <strong>gender</strong> to explore subgroup patterns.</li>
+        <li><strong>Hover</strong> on a region to display its temperature with a tooltip.</li>
+        <li><strong>Use</strong> the color legend to interpret readings as low, normal, or high.</li>
+        <li><strong>Disclaimer:</strong> This dashboard is for informational use only—not a replacement for medical advice or diagnosis.</li>
+      </ol>
     </div>
     
-
     <div class="viz-wrapper">
       <svg id="faceSVG" width="400" height="500"></svg>
     </div>
 
-    <!-- <div class="annotation-panel">
-      <h4><span style="color:#007c91">🎯 Purpose of This Tool</span></h4>
-  <li><strong>Simulate</strong> how temperature readings vary by ambient conditions, <strong>age</strong>, and <strong>gender</strong>.</li>
-      <ul>
-        <li><strong>Visualize</strong> real-time facial temperature patterns interactively and intuitively.</li>
-        <li><strong>Simulate</strong> how temperature readings vary by ambient conditions, <strong>age</strong>, and <strong>gender</strong>.</li>
-        <li><strong>Identify</strong> potential fever zones (≥ 38 °C) early using color and alert cues.</li>
-        <li><strong>Support</strong> clinicians, researchers, and educators with a fast-reference diagnostic tool.</li>
-      </ul>
-    </div> -->
-        <div class="diagnosis-container" id="diagnosisBox">
-          <h4>Auto Diagnosis</h4>
-          <ul id="diagnosisList"></ul>
-        </div>
+    <div class="diagnosis-container" id="diagnosisBox">
+      <h4>Auto Diagnosis</h4>
+      <ul id="diagnosisList"></ul>
+    </div>
     
   </div>
 
-
-
     <div class="tooltip" id="tooltip"></div>
 
-    <div class="temp-feedback-panel">
-      <p id="feedbackText">Click a region and use the slider to see feedback here.</p>
+      <div class="temp-feedback-panel">
+        <p id="feedbackText">Click a region and use the slider to see feedback here.</p>
+      </div>
     </div>
-
-    <div class="legend card">
-      <h3>💡 Temperature Color Legend</h3>
-<p>Low: <span>💙 &lt;36°C</span> Normal: <span>🟨 36–37.9°C</span> High: <span>🔴 ≥38°C</span></p>
-
-    </div>
-
-   
-
-  </div>
 
   <script src="main.js"></script>
 </body>
