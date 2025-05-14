@@ -205,11 +205,12 @@ select:focus {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   padding: 22px 34px;
   width: fit-content;
-  margin: 0 auto 40px;
+  margin: 0 auto 10px;
   text-align: center;
   border: 1px solid #d0dce5;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   animation: fadeIn 0.7s ease;
+  margin-bottom: -25px;
 }
 
 .legend h3 {
@@ -218,6 +219,7 @@ select:focus {
   color: #1a2e35;
   text-transform: uppercase;
   letter-spacing: 1.1px;
+  margin-top: 0;
 }
 
 .legend p {
@@ -231,7 +233,7 @@ select:focus {
   display: inline-block;
   padding: 6px 12px;
   border-radius: 10px;
-  margin: 0 6px;
+  margin: 0 16px; /* was 6px*/
   color: #000;
   font-weight: bold;
   font-size: 0.95em;
@@ -263,8 +265,6 @@ select:focus {
   margin-left: 6px;
   animation: pulse 1.2s infinite;
 }
-
-
 
 .page-title {
   font-size: 2.8em;
@@ -318,48 +318,6 @@ circle.selected {
   transform: scale(1.05);
 }
 
-
-
-.face-container {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px auto;
-}
-
-.annotation-panel h4 {
-  color: #007c91;
-  font-size: 1.3em;
-  margin-bottom: 12px;
-  border-bottom: 2px solid #00b7c2;
-  padding-bottom: 5px;
-}
-
-.annotation-panel {
-  flex: 0 0 350px;
-  background-color: #ffffff;
-  border: 3px solid #c0e7f3;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-  padding: 20px;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  text-align: left;
-  margin-left: 150px;
-  margin-right: 150px;
-}
-
-.annotation-panel ul {
-  margin: 0;
-  padding-left: 1.2em;
-  line-height: 1.5;
-}
-
-.annotation-panel ul li {
-  margin-bottom: 0.4em; 
-}
-
 .navbar {
   display: flex;
   align-items: center;
@@ -387,32 +345,31 @@ circle.selected {
   background: rgba(255,255,255,0.2);
 }
 
-.container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: left;
+.face-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 20px 150px;
+  gap: 12px;
+  margin-top: 10px;
 }
 
+.annotation-panel,
 .diagnosis-container {
   flex: 0 0 350px;
-  width: 350px;
-  min-height: 500px;
-  margin: 40px 0;
+  /* remove any margin-left/right here */
+  margin: 20px 0;               /* vertical spacing only */
   padding: 20px;
   background-color: #ffffff;
   border: 3px solid #c0e7f3;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-  text-align: left;
   font-size: 0.95rem;
   line-height: 1.4;
-  margin-left: 150px;
-  margin-right: 150px;
-  min-height: 300px;
-  height: auto;
-  display: block; 
+  text-align: left;
 }
+
+.annotation-panel h4,
 .diagnosis-container h4 {
   font-size: 1.3em;
   color: #007c91;
@@ -420,10 +377,14 @@ circle.selected {
   border-bottom: 2px solid #00b7c2;
   padding-bottom: 5px;
 }
+
+.annotation-panel ul,
 .diagnosis-container ul {
   margin: 0;
   padding-left: 1.2em;
 }
+
+.annotation-panel li,
 .diagnosis-container li {
   margin-bottom: 0.4em;
 }
