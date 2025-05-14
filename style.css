@@ -388,3 +388,48 @@ circle.selected {
 .diagnosis-container li {
   margin-bottom: 0.4em;
 }
+
+.subtitle {
+  font-size: 1.25em;
+  color: #004d61;
+  font-weight: 600;
+  text-align: center;
+  max-width: 750px;
+  margin: 12px auto 30px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #00acc1;
+  background: none;
+  line-height: 1.6;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  /* ...previous styles... */
+  animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
